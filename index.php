@@ -1,17 +1,40 @@
 <?php
 $nazevBlogu = "Czechitas";
-
 $pocetZhlednuti = 20;
 
 if ($pocetZhlednuti == 0 || $pocetZhlednuti < 0) {
-    $pocetZhlednuti = "žádné zhlédnutí";
+    $pocetZhlednuti = "nikdo nás neviděl";
 } elseif ($pocetZhlednuti >= 10) {
-    $pocetZhlednuti = "vidělo to hodně lidí";
+    $pocetZhlednuti = "hodně lidí";
 } else {
-    $pocetZhlednuti = "vidělo to pár lidí";
+    $pocetZhlednuti = "pár lidí";
 }
-?>
 
+$clanky = [
+    "Pole a lány",
+    "Podmínky a náhody",
+    "Úvodní slovo",
+];
+
+$clankyPocetZhlednuti = [1, 4, 51];
+
+$clankyPerex = [
+    "Vítr skoro nefouká a tak by se na první pohled mohlo zdát, že se balónky snad vůbec nepohybují.
+nízko nad zemí. Kdyby pod balónky nebyla sytě zelenkavá tráva, ale třeba suchá silnice či beton,
+možná by bylo vidět jejich barevné stíny - to jak přes poloprůsvitné barevné balónky prochází ostré sluneční paprsky.",
+    "Když svítí slunce tak silně jako nyní, tak se stuha třpytí jako kapka rosy a jen málokdo vydrží dívat se na ni
+přímo déle než pár chvil. Jak vlastně vypadají ony balónky?.",
+"Kdyby pod balónky nebyla sytě zelenkavá tráva, ale třeba suchá silnice či beton, možná by bylo
+a ani do stran se příliš nepohybují. Proti slunci to vypadá, že se slunce pohybuje k západu rychleji než balónky, a možná to tak skutečně je.",
+];
+
+$autoriJmena = [
+    "ondra" => "Ondra Machulda",
+    "martinb" => "Martin Baranek",
+    "martinh" => "Martin Holcman",
+];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,32 +51,77 @@ if ($pocetZhlednuti == 0 || $pocetZhlednuti < 0) {
 </head>
 <body>
     <div class="container">
-    	<!-- hlavička -->
+        <!-- hlavička -->
         <div class="header navbar navbar-light bg-light rounded">
             <h1><?php echo $nazevBlogu . " blog"; ?></h1>
         </div>
 
         <!-- výpis článků -->
         <ul class="list-unstyled">
+
             <li class="jumbotron pt-2 pb-2 mt-3 mb-1">
-                <h2><a href="#">Pole a lány</a></h2>
+                <h2><a href="#"><?php echo $clanky[0]; ?></a></h2>
+                <p><?php echo $clankyPerex[0]; ?></p>
                 <p>
-                Vítr skoro nefouká a tak by se na první pohled mohlo zdát, že se balónky snad vůbec nepohybují.
-                Jenom tak klidně levitují ve vzduchu. Jelikož slunce jasně září a na obloze byste od východu
-                k západu hledali mráček marně, balónky působí jako jakási fata morgána uprostřed pouště.
-                Zkrátka široko daleko nikde nic, jen zelenkavá tráva, jasně modrá obloha a tři křiklavě
-                barevné pouťové balónky, které se téměř nepozorovatelně pohupují ani ne moc vysoko, ani moc
-                nízko nad zemí. Kdyby pod balónky nebyla sytě zelenkavá tráva, ale třeba suchá silnice či beton,
-                možná by bylo vidět jejich barevné stíny - to jak přes poloprůsvitné barevné balónky prochází ostré sluneční paprsky.
+                    <a href="mailto:#"><?php echo $autoriJmena["ondra"]; ?></a> |
+                    Počet zhlédnutí: <?php
+                    if ($clankyPocetZhlednuti[0] < 1) {
+                        $pocetZhlednutiText = "žádné zobrazení";
+                    } elseif ($clankyPocetZhlednuti[0] == 1) {
+                        $pocetZhlednutiText = "1 osoba";
+                    } elseif ($clankyPocetZhlednuti[0] > 1 && $clankyPocetZhlednuti[0] < 5) {
+                        $pocetZhlednutiText = $clankyPocetZhlednuti[0] . " osoby";
+                    } else {
+                        $pocetZhlednutiText = $clankyPocetZhlednuti[0] . " osob";
+                    }
+                    echo $pocetZhlednutiText; ?>
                 </p>
-                <p><a href="mailto:#">Pan Lipsum cézet</a> | Počet zhlédnutí: 20</p>
             </li>
+
+            <li class="jumbotron pt-2 pb-2 mt-3 mb-1">
+                <h2><a href="#"><?php echo $clanky[1]; ?></a></h2>
+                <p><?php echo $clankyPerex[1]; ?></p>
+                <p>
+                    <a href="mailto:#"><?php echo $autoriJmena["martinb"]; ?></a> |
+                    Počet zhlédnutí: <?php
+                    if ($clankyPocetZhlednuti[1] < 1) {
+                        $pocetZhlednutiText = "žádné zobrazení";
+                    } elseif ($clankyPocetZhlednuti[1] == 1) {
+                        $pocetZhlednutiText = "1 osoba";
+                    } elseif ($clankyPocetZhlednuti[1] > 1 && $clankyPocetZhlednuti[1] < 5) {
+                        $pocetZhlednutiText = $clankyPocetZhlednuti[1] . " osoby";
+                    } else {
+                        $pocetZhlednutiText = $clankyPocetZhlednuti[1] . " osob";
+                    }
+                    echo $pocetZhlednutiText; ?>
+                </p>
+            </li>
+
+            <li class="jumbotron pt-2 pb-2 mt-3 mb-1">
+                <h2><a href="#"><?php echo $clanky[2]; ?></a></h2>
+                <p><?php echo $clankyPerex[2]; ?></p>
+                <p>
+                    <a href="mailto:#"><?php echo $autoriJmena["martinh"]; ?></a> |
+                    Počet zhlédnutí: <?php
+                    if ($clankyPocetZhlednuti[2] < 1) {
+                        $pocetZhlednutiText = "žádné zobrazení";
+                    } elseif ($clankyPocetZhlednuti[2] == 1) {
+                        $pocetZhlednutiText = "1 osoba";
+                    } elseif ($clankyPocetZhlednuti[2] > 1 && $clankyPocetZhlednuti[2] < 5) {
+                        $pocetZhlednutiText = $clankyPocetZhlednuti[2] . " osoby";
+                    } else {
+                        $pocetZhlednutiText = $clankyPocetZhlednuti[2] . " osob";
+                    }
+                    echo $pocetZhlednutiText; ?>
+                </p>
+            </li>
+
         </ul>
 
         <!-- patička -->
         <div class="footer navbar navbar-light bg-light rounded">
             <p class="mb-0">Spolu s Czechitas jsme to s láskou upekli v LMC s.r.o. | Počet zhlédnutí blogu: <?php echo $pocetZhlednuti; ?></p>
         </div>
-    </div> 
+    </div>
 </body>
 </html>
