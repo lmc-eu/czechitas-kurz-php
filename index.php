@@ -1,86 +1,5 @@
 <?php
-$nazevBlogu = "Czechitas";
-$pocetZhlednuti = 20;
-
-if ($pocetZhlednuti == 0 || $pocetZhlednuti < 0) {
-    $pocetZhlednuti = "nikdo nás neviděl";
-} elseif ($pocetZhlednuti >= 10) {
-    $pocetZhlednuti = "hodně lidí";
-} else {
-    $pocetZhlednuti = "pár lidí";
-}
-
-$clanek1 = [
-    "nadpis" => "Pole a lány",
-    "perex" => "Vítr skoro nefouká a tak by se na první pohled mohlo zdát, že se balónky snad vůbec nepohybují.",
-    "obsah" => "Vítr skoro nefouká a tak by se na první pohled mohlo zdát, že se balónky snad vůbec nepohybují.
-        nízko nad zemí. Kdyby pod balónky nebyla sytě zelenkavá tráva, ale třeba suchá silnice či beton,
-        možná by bylo vidět jejich barevné stíny - to jak přes poloprůsvitné barevné balónky prochází ostré sluneční paprsky.",
-    "pocetZhlednuti" => 1,
-];
-
-if ($clanek1["pocetZhlednuti"] < 1) {
-    $pocetZhlednutiText = "žádné zobrazení";
-} elseif ($clanek1["pocetZhlednuti"] == 1) {
-    $pocetZhlednutiText = "1 osoba";
-} elseif ($clanek1["pocetZhlednuti"] > 1 && $clanek1["pocetZhlednuti"] < 5) {
-    $pocetZhlednutiText = $clanek1["pocetZhlednuti"] . " osoby";
-} else {
-    $pocetZhlednutiText = $clanek1["pocetZhlednuti"] . " osob";
-}
-
-$clanek1["pocetZhlednutiText"] = $pocetZhlednutiText;
-
-$clanek2 = [
-    "nadpis" => "Podmínky a náhody",
-    "perex" => "Když svítí slunce tak silně jako nyní, tak se stuha třpytí jako kapka rosy a jen málokdo vydrží dívat se na ni
-        přímo déle než pár chvil. Jak vlastně vypadají ony balónky?.",
-    "obsah" => "Když svítí slunce tak silně jako nyní, tak se stuha třpytí jako kapka rosy a jen málokdo vydrží dívat se na ni
-        přímo déle než pár chvil. Jak vlastně vypadají ony balónky?.",
-    "pocetZhlednuti" => 4,
-];
-
-if ($clanek2["pocetZhlednuti"] < 1) {
-    $pocetZhlednutiText = "žádné zobrazení";
-} elseif ($clanek2["pocetZhlednuti"] == 1) {
-    $pocetZhlednutiText = "1 osoba";
-} elseif ($clanek2["pocetZhlednuti"] > 1 && $clanek2["pocetZhlednuti"] < 5) {
-    $pocetZhlednutiText = $clanek2["pocetZhlednuti"] . " osoby";
-} else {
-    $pocetZhlednutiText = $clanek2["pocetZhlednuti"] . " osob";
-}
-
-$clanek2["pocetZhlednutiText"] = $pocetZhlednutiText;
-
-$clanek3 = [
-    "nadpis" => "Úvodní slovo",
-    "perex" => "Kdyby pod balónky nebyla sytě zelenkavá tráva, ale třeba suchá silnice či beton, možná by bylo
-        a ani do stran se příliš nepohybují. Proti slunci to vypadá, že se slunce pohybuje k západu rychleji než balónky, a možná to tak skutečně je.",
-
-    "obsah" => "Vítr skoro nefouká a tak by se na první pohled mohlo zdát, že se balónky snad vůbec nepohybují.
-        nízko nad zemí. Kdyby pod balónky nebyla sytě zelenkavá tráva, ale třeba suchá silnice či beton,
-        možná by bylo vidět jejich barevné stíny - to jak přes poloprůsvitné barevné balónky prochází ostré sluneční paprsky.",
-    "pocetZhlednuti" => 51,
-];
-
-if ($clanek3["pocetZhlednuti"] < 1) {
-    $pocetZhlednutiText = "žádné zobrazení";
-} elseif ($clanek3["pocetZhlednuti"] == 1) {
-    $pocetZhlednutiText = "1 osoba";
-} elseif ($clanek3["pocetZhlednuti"] > 1 && $clanek3["pocetZhlednuti"] < 5) {
-    $pocetZhlednutiText = $clanek3["pocetZhlednuti"] . " osoby";
-} else {
-    $pocetZhlednutiText = $clanek3["pocetZhlednuti"] . " osob";
-}
-
-$clanek3["pocetZhlednutiText"] = $pocetZhlednutiText;
-
-$autoriJmena = [
-    "ondra" => "Ondra Machulda",
-    "martinb" => "Martin Baranek",
-    "martinh" => "Martin Holcman",
-];
-
+require_once "sdilene.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,29 +26,29 @@ $autoriJmena = [
         <ul class="list-unstyled">
 
             <li class="jumbotron pt-2 pb-2 mt-3 mb-1">
-                <h2><a href="#"><?php echo $clanek1["nadpis"]; ?></a></h2>
-                <p><?php echo $clanek1["perex"]; ?></p>
+                <h2><a href="#"><?php echo $clanky[0]["nadpis"]; ?></a></h2>
+                <p><?php echo $clanky[0]["perex"]; ?></p>
                 <p>
                     <a href="mailto:#"><?php echo $autoriJmena["ondra"]; ?></a> |
-                    Počet zhlédnutí: <?php echo $clanek1["pocetZhlednutiText"]; ?>
+                    Počet zhlédnutí: <?php echo $clanky[0]["pocetZhlednutiText"]; ?>
                 </p>
             </li>
 
             <li class="jumbotron pt-2 pb-2 mt-3 mb-1">
-                <h2><a href="#"><?php echo $clanek2["nadpis"]; ?></a></h2>
-                <p><?php echo $clanek2["perex"]; ?></p>
+                <h2><a href="#"><?php echo $clanky[1]["nadpis"]; ?></a></h2>
+                <p><?php echo $clanky[1]["perex"]; ?></p>
                 <p>
                     <a href="mailto:#"><?php echo $autoriJmena["ondra"]; ?></a> |
-                    Počet zhlédnutí: <?php echo $clanek2["pocetZhlednutiText"]; ?>
+                    Počet zhlédnutí: <?php echo $clanky[1]["pocetZhlednutiText"]; ?>
                 </p>
             </li>
 
             <li class="jumbotron pt-2 pb-2 mt-3 mb-1">
-                <h2><a href="#"><?php echo $clanek3["nadpis"]; ?></a></h2>
-                <p><?php echo $clanek3["perex"]; ?></p>
+                <h2><a href="#"><?php echo $clanky[2]["nadpis"]; ?></a></h2>
+                <p><?php echo $clanky[2]["perex"]; ?></p>
                 <p>
                     <a href="mailto:#"><?php echo $autoriJmena["ondra"]; ?></a> |
-                    Počet zhlédnutí: <?php echo $clanek3["pocetZhlednutiText"]; ?>
+                    Počet zhlédnutí: <?php echo $clanky[2]["pocetZhlednutiText"]; ?>
                 </p>
             </li>
 
