@@ -25,32 +25,20 @@ require_once "sdilene.php";
         <!-- výpis článků -->
         <ul class="list-unstyled">
 
-            <li class="jumbotron pt-2 pb-2 mt-3 mb-1">
-                <h2><a href="#"><?php echo $clanky[0]["nadpis"]; ?></a></h2>
-                <p><?php echo $clanky[0]["perex"]; ?></p>
-                <p>
-                    <a href="mailto:#"><?php echo $autoriJmena["ondra"]; ?></a> |
-                    Počet zhlédnutí: <?php echo $clanky[0]["pocetZhlednutiText"]; ?>
-                </p>
-            </li>
-
-            <li class="jumbotron pt-2 pb-2 mt-3 mb-1">
-                <h2><a href="#"><?php echo $clanky[1]["nadpis"]; ?></a></h2>
-                <p><?php echo $clanky[1]["perex"]; ?></p>
-                <p>
-                    <a href="mailto:#"><?php echo $autoriJmena["ondra"]; ?></a> |
-                    Počet zhlédnutí: <?php echo $clanky[1]["pocetZhlednutiText"]; ?>
-                </p>
-            </li>
-
-            <li class="jumbotron pt-2 pb-2 mt-3 mb-1">
-                <h2><a href="#"><?php echo $clanky[2]["nadpis"]; ?></a></h2>
-                <p><?php echo $clanky[2]["perex"]; ?></p>
-                <p>
-                    <a href="mailto:#"><?php echo $autoriJmena["ondra"]; ?></a> |
-                    Počet zhlédnutí: <?php echo $clanky[2]["pocetZhlednutiText"]; ?>
-                </p>
-            </li>
+            <?php foreach ($clanky as $klicClanku => $clanek) { ?>
+                <li class="jumbotron pt-2 pb-2 mt-3 mb-1">
+                    <h2>
+                        <a href="./detail.php?clanek=<?php echo $klicClanku; ?>">
+                            <?php echo $clanek["nadpis"]; ?>
+                        </a>
+                    </h2>
+                    <p><?php echo $clanek["perex"]; ?></p>
+                    <p>
+                        <a href="mailto:#"><?php echo $autoriJmena["ondra"]; ?></a> |
+                        Počet zhlédnutí: <?php echo $clanek["pocetZhlednutiText"]; ?>
+                    </p>
+                </li>
+            <?php } ?>
 
         </ul>
 

@@ -2,6 +2,13 @@
 require_once "sdilene.php";
 
 $zobrazitClanek = (int) $_GET["clanek"];
+
+if ($zobrazitClanek != 0 && $zobrazitClanek != 1 && $zobrazitClanek != 2) {
+    $zobrazitClanek = 0;
+}
+
+$dalsiClanek = $zobrazitClanek + 1;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +53,15 @@ $zobrazitClanek = (int) $_GET["clanek"];
                 Počet zhlédnutí: <?php echo $clanky[$zobrazitClanek]["pocetZhlednutiText"]?>
             </small>
         </p>
+
+        <?php if ($zobrazitClanek < 2) { ?>
+            <p class="float-right mr-3">
+                <small>
+                    <a href="./detail.php?clanek=<?php echo $dalsiClanek; ?>">Další</a>
+                </small>
+            </p>
+        <?php } ?>
+
         <div class="clearfix mb-3"></div>
 
         <!-- patička -->
