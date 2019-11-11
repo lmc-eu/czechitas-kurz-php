@@ -18,6 +18,10 @@ $clanek1 = [
         nízko nad zemí. Kdyby pod balónky nebyla sytě zelenkavá tráva, ale třeba suchá silnice či beton,
         možná by bylo vidět jejich barevné stíny - to jak přes poloprůsvitné barevné balónky prochází ostré sluneční paprsky.",
     "pocetZhlednuti" => 1,
+    "autori" => [
+        "Honza Kuthan",
+        "Ondra Machulda",
+    ]
 ];
 
 if ($clanek1["pocetZhlednuti"] < 1) {
@@ -39,6 +43,9 @@ $clanek2 = [
     "obsah" => "Když svítí slunce tak silně jako nyní, tak se stuha třpytí jako kapka rosy a jen málokdo vydrží dívat se na ni
         přímo déle než pár chvil. Jak vlastně vypadají ony balónky?.",
     "pocetZhlednuti" => 4,
+    "autori" => [
+        "Martin Holcman",
+    ],
 ];
 
 if ($clanek2["pocetZhlednuti"] < 1) {
@@ -62,6 +69,9 @@ $clanek3 = [
         nízko nad zemí. Kdyby pod balónky nebyla sytě zelenkavá tráva, ale třeba suchá silnice či beton,
         možná by bylo vidět jejich barevné stíny - to jak přes poloprůsvitné barevné balónky prochází ostré sluneční paprsky.",
     "pocetZhlednuti" => 51,
+    "autori" => [
+        "Markéta Filipová"
+    ],
 ];
 
 if ($clanek3["pocetZhlednuti"] < 1) {
@@ -75,12 +85,6 @@ if ($clanek3["pocetZhlednuti"] < 1) {
 }
 
 $clanek3["pocetZhlednutiText"] = $pocetZhlednutiText;
-
-$autoriJmena = [
-    "ondra" => "Ondra Machulda",
-    "martinb" => "Martin Baranek",
-    "martinh" => "Martin Holcman",
-];
 
 $clanky = [
     $clanek1,

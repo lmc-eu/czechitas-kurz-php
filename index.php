@@ -34,7 +34,10 @@ require_once "sdilene.php";
                     </h2>
                     <p><?php echo $clanek["perex"]; ?></p>
                     <p>
-                        <a href="mailto:#"><?php echo $autoriJmena["ondra"]; ?></a> |
+                        <?php foreach ($clanek["autori"] as $autor) { ?>
+                            <?php echo $autor;?>
+                        <?php } ?>
+                        |
                         Počet zhlédnutí: <?php echo $clanek["pocetZhlednutiText"]; ?>
                     </p>
                 </li>
