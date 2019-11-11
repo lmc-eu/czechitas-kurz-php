@@ -26,7 +26,7 @@ $dalsiClanek = $zobrazitClanek + 1;
 </head>
 <body>
     <div class="container">
-    	<!-- hlavička -->
+        <!-- hlavička -->
         <div class="header navbar navbar-light bg-light rounded">
             <h1><?php echo $nazevBlogu . " blog"; ?></h1>
         </div>
@@ -43,6 +43,12 @@ $dalsiClanek = $zobrazitClanek + 1;
         </section>
 
         <div class="p-5 mb-2 bg-light">
+            <p>
+                <?php foreach ($clanky[$zobrazitClanek]["autori"] as $autor) { ?>
+                    <span class="badge badge-secondary"><?php echo $autor; ?></span>
+                <?php } ?>
+            </p>
+
             <p>
                 <?php echo $clanky[$zobrazitClanek]["obsah"]?>
             <p>
