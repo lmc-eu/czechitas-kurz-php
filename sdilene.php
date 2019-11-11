@@ -19,8 +19,8 @@ $clanek1 = [
         možná by bylo vidět jejich barevné stíny - to jak přes poloprůsvitné barevné balónky prochází ostré sluneční paprsky.",
     "pocetZhlednuti" => 1,
     "autori" => [
-        "Honza Kuthan",
-        "Ondra Machulda",
+        "Honza Kuthan" => 'jan.kuthan@lmc.eu',
+        "Ondra Machulda" => 'ondrej.machulda@lmc.eu',
     ]
 ];
 
@@ -44,7 +44,7 @@ $clanek2 = [
         přímo déle než pár chvil. Jak vlastně vypadají ony balónky?.",
     "pocetZhlednuti" => 4,
     "autori" => [
-        "Martin Holcman",
+        "Martin Holcman" => 'martin.holcman@lmc.eu',
     ],
 ];
 
@@ -70,7 +70,7 @@ $clanek3 = [
         možná by bylo vidět jejich barevné stíny - to jak přes poloprůsvitné barevné balónky prochází ostré sluneční paprsky.",
     "pocetZhlednuti" => 51,
     "autori" => [
-        "Markéta Filipová"
+        "Markéta Filipová" => 'marketa.filipova@lmc.eu',
     ],
 ];
 

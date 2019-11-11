@@ -44,8 +44,8 @@ $dalsiClanek = $zobrazitClanek + 1;
 
         <div class="p-5 mb-2 bg-light">
             <p>
-                <?php foreach ($clanky[$zobrazitClanek]["autori"] as $autor) { ?>
-                    <span class="badge badge-secondary"><?php echo $autor; ?></span>
+                <?php foreach ($clanky[$zobrazitClanek]["autori"] as $autor => $emailAutora) { ?>
+                    <a href="mailto:<?php echo $emailAutora; ?>" class="badge badge-secondary"><?php echo $autor; ?></a>
                 <?php } ?>
             </p>
 
