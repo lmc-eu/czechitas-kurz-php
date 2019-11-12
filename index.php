@@ -22,6 +22,10 @@ require_once "sdilene.php";
             <h1><?php echo $nazevBlogu . " blog"; ?></h1>
         </div>
 
+        <p class="bg-light mt-2 p-2">
+            Počet článků na blogu: <?php echo count($clanky); ?>
+        </p>
+
         <!-- výpis článků -->
         <ul class="list-unstyled">
 
@@ -59,6 +63,8 @@ require_once "sdilene.php";
                 Spolu s Czechitas jsme to s láskou upekli v LMC s.r.o.
                 |
                 Počet zhlédnutí blogu: <?php echo $pocetZhlednuti; ?>
+                |
+                Stránka vygenerována: <?php echo date('j. n. Y, H:i:s'); ?>
             </p>
         </div>
     </div>
