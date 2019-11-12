@@ -27,16 +27,24 @@ require_once "sdilene.php";
 
             <?php foreach ($clanky as $klicClanku => $clanek) { ?>
                 <li class="jumbotron pt-2 pb-2 mt-3 mb-1">
+                    <!-- nadpis článku -->
                     <h2>
                         <a href="./detail.php?clanek=<?php echo $klicClanku; ?>">
                             <?php echo $clanek["nadpis"]; ?>
                         </a>
                     </h2>
-                    <p><?php echo $clanek["perex"]; ?></p>
+
+                    <!-- perex -->
                     <p>
+                        <?php echo $clanek["perex"]; ?>
+                    </p>
+
+                    <p>
+                        <!-- jméno autora článku -->
                         <?php foreach ($clanek["autori"] as $autor => $emailAutora) { ?>
                             <a href="mailto:<?php echo $emailAutora;?>"><?php echo $autor;?></a>
                         <?php } ?>
+                        <!-- výpis počtu zhlédnutí daného článku -->
                         |
                         Počet zhlédnutí: <?php echo $clanek["pocetZhlednutiText"]; ?>
                     </p>
@@ -47,7 +55,11 @@ require_once "sdilene.php";
 
         <!-- patička -->
         <div class="footer navbar navbar-light bg-light rounded">
-            <p class="mb-0">Spolu s Czechitas jsme to s láskou upekli v LMC s.r.o. | Počet zhlédnutí blogu: <?php echo $pocetZhlednuti; ?></p>
+            <p class="mb-0">
+                Spolu s Czechitas jsme to s láskou upekli v LMC s.r.o.
+                |
+                Počet zhlédnutí blogu: <?php echo $pocetZhlednuti; ?>
+            </p>
         </div>
     </div>
 </body>

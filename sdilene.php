@@ -39,7 +39,7 @@ $clanek1["pocetZhlednutiText"] = $pocetZhlednutiText;
 $clanek2 = [
     "nadpis" => "Podmínky a náhody",
     "perex" => "Když svítí slunce tak silně jako nyní, tak se stuha třpytí jako kapka rosy a jen málokdo vydrží dívat se na ni
-        přímo déle než pár chvil. Jak vlastně vypadají ony balónky?.",
+        přímo déle než pár chvil.",
     "obsah" => "Když svítí slunce tak silně jako nyní, tak se stuha třpytí jako kapka rosy a jen málokdo vydrží dívat se na ni
         přímo déle než pár chvil. Jak vlastně vypadají ony balónky?.",
     "pocetZhlednuti" => 4,
@@ -62,9 +62,7 @@ $clanek2["pocetZhlednutiText"] = $pocetZhlednutiText;
 
 $clanek3 = [
     "nadpis" => "Úvodní slovo",
-    "perex" => "Kdyby pod balónky nebyla sytě zelenkavá tráva, ale třeba suchá silnice či beton, možná by bylo
-        a ani do stran se příliš nepohybují. Proti slunci to vypadá, že se slunce pohybuje k západu rychleji než balónky, a možná to tak skutečně je.",
-
+    "perex" => "Kdyby pod balónky nebyla sytě zelenkavá tráva, ale třeba suchá silnice či beton.",
     "obsah" => "Vítr skoro nefouká a tak by se na první pohled mohlo zdát, že se balónky snad vůbec nepohybují.
         nízko nad zemí. Kdyby pod balónky nebyla sytě zelenkavá tráva, ale třeba suchá silnice či beton,
         možná by bylo vidět jejich barevné stíny - to jak přes poloprůsvitné barevné balónky prochází ostré sluneční paprsky.",
