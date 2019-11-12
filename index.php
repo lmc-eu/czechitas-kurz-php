@@ -40,7 +40,8 @@ require_once "sdilene.php";
 
                     <!-- perex -->
                     <p>
-                        <?php echo $clanek["perex"]; ?>
+                        <?php echo substr($clanek["perex"], 0, 133); ?>
+                        <?php if (strlen($clanek["perex"]) > 133) { echo "..."; } ?>
                     </p>
 
                     <p>
