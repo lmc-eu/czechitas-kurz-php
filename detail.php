@@ -3,7 +3,8 @@ require_once "sdilene.php";
 
 $zobrazitClanek = (int) $_GET["clanek"];
 
-if ($zobrazitClanek != 0 && $zobrazitClanek != 1 && $zobrazitClanek != 2) {
+// Pokud článek $zobrazitClanek neexistuje v poli $clanky
+if (empty($clanky[$zobrazitClanek])) {
     $zobrazitClanek = 0;
 }
 
