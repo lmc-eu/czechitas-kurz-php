@@ -5,7 +5,8 @@ $zobrazitClanek = (int) $_GET["clanek"];
 
 // Pokud článek $zobrazitClanek neexistuje v poli $clanky
 if (empty($clanky[$zobrazitClanek])) {
-    $zobrazitClanek = 0;
+    // Uložíme do proměnné $zobrazitClanek náhodný klíč z pole $clanky
+    $zobrazitClanek = array_rand($clanky);
 }
 
 $dalsiClanek = $zobrazitClanek + 1;
