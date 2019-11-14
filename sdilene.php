@@ -43,9 +43,7 @@ $clanek2 = [
     "obsah" => "Když svítí slunce tak silně jako nyní, tak se stuha třpytí jako kapka rosy a jen málokdo vydrží dívat se na ni
         přímo déle než pár chvil. Jak vlastně vypadají ony balónky?.",
     "pocetZhlednuti" => 4,
-    "autori" => [
-        "Martin Holcman" => 'martin.holcman@lmc.eu',
-    ],
+    "autori" => [],
 ];
 
 if ($clanek2["pocetZhlednuti"] < 1) {

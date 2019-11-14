@@ -52,6 +52,10 @@ $dalsiClanek = $zobrazitClanek + 1;
                 <?php foreach ($clanky[$zobrazitClanek]["autori"] as $autor => $emailAutora) { ?>
                     <a href="mailto:<?php echo $emailAutora; ?>" class="badge badge-secondary"><?php echo $autor; ?></a>
                 <?php } ?>
+                <?php if (empty($clanky[$zobrazitClanek]["autori"])) {
+                    echo "Anonymní autor";
+                }
+                ?>
             </p>
 
             <!-- výpis obsahu článku -->
