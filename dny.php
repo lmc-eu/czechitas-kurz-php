@@ -25,6 +25,9 @@
 </ul>
 
 <!-- Sem zkuste vypsat všechny dny v týdnu z pole $dny tak, aby mezi nimi byla čárka -->
+<?php
+echo implode(", ", $dny)
+?>
 
 </body>
 </html>
