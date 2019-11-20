@@ -58,7 +58,16 @@ $darky = [
         <?php foreach ($darky as $darek) { ?>
             <li class="list-group-item">
                 <?php echo $darek["popis"];?>
-                <span class="badge badge-secondary"><?php echo $darek["cena"];?> Kč</span>
+                <?php
+                if ($darek["cena"] < 200) {
+                    $barva = "badge-success";
+                } elseif ($darek["cena"] > 1000) {
+                    $barva = "badge-warning";
+                } else {
+                    $barva = "badge-secondary";
+                }
+                ?>
+                <span class="badge <?php echo $barva; ?>"><?php echo $darek["cena"]; ?> Kč</span>
             </li>
         <?php } ?>
     </ul>
