@@ -1,3 +1,33 @@
+<?php
+
+$darky = [
+    [
+        "jmeno" => "Martin",
+        "popis" => "Lezecké boty",
+        "cena" => 333,
+    ],
+    [
+        "jmeno" => "Petr",
+        "popis" => "Knížka o programování",
+        "cena" => 129,
+    ],
+    [
+        "jmeno" => "Markéta",
+        "popis" => "Zimní bunda",
+        "cena" => 950,
+    ],
+    [
+        "jmeno" => "Petr",
+        "popis" => "Sluchátka",
+        "cena" => 1500,
+    ],
+    [
+        "jmeno" => "Jirka",
+        "popis" => "Svetr se soby",
+        "cena" => 500,
+    ],
+];
+?>
 <!DOCTYPE html>
 <html lang  ="cs">
 <head>
@@ -19,11 +49,23 @@
         <h1>Vánoční dárky</h1>
     </div>
 
-    <p class="mt-4 text-center">
-        <img src="https://i.giphy.com/media/I6nI3BQtcLKJW/source.gif">
-    </p>
 
     <!-- Zde uděláme výpis dárků -->
+
+    <h2>Seznam dárků</h2>
+
+    <ul class="list-group my-3">
+        <?php foreach ($darky as $darek) { ?>
+            <li class="list-group-item">
+                <?php echo $darek["popis"];?>
+                <span class="badge badge-secondary"><?php echo $darek["cena"];?> Kč</span>
+            </li>
+        <?php } ?>
+    </ul>
+
+    <p>
+        <strong>Celkem dárků: <?php echo count($darky);?></strong>
+    </p>
 
 </div>
 
