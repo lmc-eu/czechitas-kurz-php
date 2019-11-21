@@ -5,26 +5,31 @@ $darky = [
         "jmeno" => "Martin",
         "popis" => "Lezecké boty",
         "cena" => 333,
+        "koupeno" => true,
     ],
     [
         "jmeno" => "Petr",
         "popis" => "Knížka o programování",
         "cena" => 129,
+        "koupeno" => false,
     ],
     [
         "jmeno" => "Markéta",
         "popis" => "Zimní bunda",
         "cena" => 950,
+        "koupeno" => true,
     ],
     [
         "jmeno" => "Petr",
         "popis" => "Sluchátka",
         "cena" => 1500,
+        "koupeno" => false,
     ],
     [
         "jmeno" => "Jirka",
         "popis" => "Svetr se soby",
         "cena" => 500,
+        "koupeno" => false,
     ],
 ];
 ?>
@@ -57,7 +62,13 @@ $darky = [
     <ul class="list-group my-3">
         <?php foreach ($darky as $darek) { ?>
             <li class="list-group-item">
+                <!-- Zobrazení fajfky u již zakoupených dárků a křížku u nezakoupených -->
+                <?php if ($darek["koupeno"]) { echo "✅";} else {echo "❌";}?>
+
+                <!-- Popis dárku -->
                 <?php echo $darek["popis"];?>
+
+                <!-- Štítek s cenou -->
                 <?php
                 if ($darek["cena"] < 200) {
                     $barva = "badge-success";
