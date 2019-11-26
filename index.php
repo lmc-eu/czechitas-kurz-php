@@ -52,6 +52,26 @@ require_once "sdilene.php";
                         <!-- výpis počtu zhlédnutí daného článku -->
                         |
                         Počet zhlédnutí: <?php echo $clanek["pocetZhlednutiText"]; ?>
+                        |
+                        <?php
+                        $slova = explode(" ", $clanek["obsah"]);
+                        $pocetSlov = count($slova);
+
+                        $dobaCteni = $pocetSlov / 200;
+                        $dobaCteniZaokrouhlena = ceil($dobaCteni);  // BONUS
+
+                        $minutyText = 'min';
+
+                        // BONUS 2
+                        if ($dobaCteniZaokrouhlena >= 2 && $dobaCteniZaokrouhlena < 5) {
+                            $minutyText = 'minuty';
+                        } elseif ($dobaCteniZaokrouhlena > 5) {
+                            $minutyText = 'minut';
+                        } else {
+                            $minutyText = 'minuta';
+                        }
+                        ?>
+                        Doba čtení: <?php echo $dobaCteniZaokrouhlena . " " . $minutyText ?>
                     </p>
                 </li>
             <?php } ?>
