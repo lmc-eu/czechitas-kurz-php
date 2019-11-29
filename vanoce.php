@@ -54,15 +54,13 @@ $darky = [
         <h1>Vánoční dárky</h1>
     </div>
 
-
     <!-- Zde uděláme výpis dárků -->
-
     <h2>Seznam dárků</h2>
 
     <ul class="list-group my-3">
         <?php foreach ($darky as $darek) { ?>
             <li class="list-group-item">
-                <!-- Zobrazení fajfky u již zakoupených dárků a křížku u nezakoupených -->
+                <!-- Zobrazení fajfky u již zakoupených dárků a křížku u nezakoupených (úkol 1.) -->
                 <?php if ($darek["koupeno"]) { echo "✅";} else {echo "❌";}?>
 
                 <!-- Popis dárku -->
@@ -86,6 +84,43 @@ $darky = [
     <p>
         <strong>Celkem dárků: <?php echo count($darky);?></strong>
     </p>
+
+    <!-- úkol 2. -->
+    <h2>Příliš drahé dárky</h2>
+    <ul class="list-group my-3">
+        <?php foreach ($darky as $darek) {
+            if ($darek["cena"] > 1000) { ?>
+                <li class="list-group-item"><?php echo $darek["popis"]; ?></li>
+            <?php }
+        } ?>
+    </ul>
+
+    <!-- úkol 3. -->
+    <h2 class="mt-2">Etikety</h2>
+    <?php foreach ($darky as $darek) { ?>
+        <div class="card mt-1 w-25">
+            <div class="card-body display-3">
+                <?php echo $darek["jmeno"]; ?>
+            </div>
+        </div>
+    <?php } ?>
+
+    <!-- úkol 4. -->
+    <h2 class="mt-2">Etikety (s přizpůsobením velikosti písma)</h2>
+    <?php foreach ($darky as $darek) {
+        $velikostPisma = "display-3";
+
+        if (strlen($darek["jmeno"]) > 7) {
+            $velikostPisma = "display-4";
+        }
+        ?>
+        <div class="card mt-1 w-25">
+            <div class="card-body <?php echo $velikostPisma; ?>">
+                <?php echo $darek["jmeno"]; ?>
+                <!-- délka: <?php echo strlen($darek["jmeno"]); ?> -->
+            </div>
+        </div>
+    <?php } ?>
 
 </div>
 
