@@ -19,5 +19,5 @@ if (isset($_GET['jmeno']) && isset($_GET['heslo'])) {
     $uzivatelskeHeslo = $_GET['heslo'];
 // pokud se nesnazi prihlasit, jenom to rekneme
 } else {
-    echo "Toto není pokus o přihlášení.";
+    echo "Toto není pokus o přihlášení, ale celkem jich bylo ".$_SESSION['pokusu_prihlaseni'];
 }
