@@ -10,13 +10,13 @@ if (!isset($_SESSION['pokusu_prihlaseni'])) {
 }
 
 // pokud se opravdu uzivatel snazi prihlasit, zapocitame mu to a zobrazime hlasku
-if (isset($_GET['jmeno']) && isset($_GET['heslo'])) {
+if (isset($_POST['jmeno']) && isset($_POST['heslo'])) {
     $_SESSION['pokusu_prihlaseni']++;
 
     echo "Toto je ".$_SESSION['pokusu_prihlaseni'].". pokus o přihlášení.";
 
-    $uzivatelskeJmeno = strtolower($_GET['jmeno']); // u jména nechceme řešit velikost písmen
-    $uzivatelskeHeslo = $_GET['heslo'];
+    $uzivatelskeJmeno = strtolower($_POST['jmeno']); // u jména nechceme řešit velikost písmen
+    $uzivatelskeHeslo = $_POST['heslo'];
 
     // kontrola prihlaseni
     foreach ($admini as $admin) {
