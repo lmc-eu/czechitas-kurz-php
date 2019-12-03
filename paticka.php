@@ -7,6 +7,11 @@
                 |
                 Stránka vygenerována: <?php echo date('j. n. Y, H:i:s'); ?>
             </p>
+            <?php if (!$uzivatelPrihlaseny) { ?>
+                <p class="mb-0 float-right d-inline-block"><a href="prihlaseni.php">přihlásit</a></p>
+            <?php } else { ?>
+                <p class="mb-0 float-right d-inline-block"><a href="odhlasit.php">odhlásit</a></p>
+            <?php } ?>
         </div>
     </div>
 </body>

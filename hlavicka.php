@@ -1,6 +1,4 @@
-<?php
-require_once "sdilene.php";
-?>
+<?php require_once "sdilene.php"; ?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -27,3 +25,24 @@ require_once "sdilene.php";
         <div class="header navbar navbar-light bg-light rounded">
             <h1><?php echo $nazevBlogu . " blog"; ?></h1>
         </div>
+
+        <?php
+        if (isset($_SESSION["status-prihlaseni"])) {
+            $statusClass = "alert-danger";
+            if ($_SESSION["status-prihlaseni"] == 200) {
+                $statusClass = "alert-success";
+                $statusContent = "Uživatel byl přihlášen, vítejte.";
+            } elseif ($_SESSION["status-prihlaseni"] == 403) {
+                $statusContent = "Přihlášení se nezdařilo, špatné jméno nebo heslo.";
+            } elseif ($_SESSION["status-prihlaseni"] == 401) {
+                $statusClass = "alert-success";
+                $statusContent = "Uživatel byl odhlášen.";
+            } else {
+                $statusContent = "Přihlášení se nezdařilo.";
+            }
+            unset($_SESSION["status-prihlaseni"]);
+            ?>
+            <div class="alert <?php echo $statusClass; ?>" role="alert"><?php echo $statusContent; ?></div>
+            <?php
+        }
+        ?>

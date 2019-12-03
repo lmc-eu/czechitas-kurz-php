@@ -12,6 +12,11 @@ if (empty($clanky[$zobrazitClanek])) {
 $dalsiClanek = $zobrazitClanek + 1;
 
 ?>
+        <?php if($uzivatelPrihlaseny) { ?>
+        <p class="text-right">
+            <a href="detail-editace.php?clanek=<?php echo $zobrazitClanek; ?>" class="badge badge-primary">Editovat článek</a>
+        </p>
+        <?php } ?>
 
         <!-- detail článku -->
         <section class="jumotron text-center pt-3 pb-3">

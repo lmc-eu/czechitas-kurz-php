@@ -13,7 +13,7 @@ if (!isset($_SESSION['pokusu_prihlaseni'])) {
 if (isset($_POST['jmeno']) && isset($_POST['heslo'])) {
     $_SESSION['pokusu_prihlaseni']++;
 
-    echo "Toto je ".$_SESSION['pokusu_prihlaseni'].". pokus o přihlášení.";
+    $_SESSION["status-prihlaseni"] = 403;
 
     $uzivatelskeJmeno = strtolower($_POST['jmeno']); // u jména nechceme řešit velikost písmen
     $uzivatelskeHeslo = $_POST['heslo'];
@@ -21,6 +21,7 @@ if (isset($_POST['jmeno']) && isset($_POST['heslo'])) {
     // kontrola prihlaseni
     foreach ($admini as $admin) {
         if ($admin['jmeno'] == $uzivatelskeJmeno && $admin['heslo'] == $uzivatelskeHeslo) {
+            $_SESSION["status-prihlaseni"] = 200;
             $_SESSION['uzivatel'] = [
                 "jmeno" => $uzivatelskeJmeno,
             ];
@@ -28,9 +29,8 @@ if (isset($_POST['jmeno']) && isset($_POST['heslo'])) {
         }
     }
 
-    if (!isset($_SESSION['uzivatel'])) {
-        echo "Špatně zadané uživatelské jméno nebo heslo.";
-    }
+    // redirect
+    header("Location: ".$_SERVER['HTTP_REFERER'], true, 302);
 
 // pokud se nesnazi prihlasit, jenom to rekneme
 } else {

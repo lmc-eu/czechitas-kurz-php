@@ -1,6 +1,5 @@
 <?php
 session_start();
-if (isset($_GET['odhlasit']) && $_GET['odhlasit'] == '1') {
-    $_SESSION['uzivatel'] = false;
-    $uzivatelPrihlaseny = false;
-}
+unset($_SESSION['uzivatel']);
+$_SESSION['status-prihlaseni'] = 401;
+header("Location: ".$_SERVER['HTTP_REFERER'], true, 302);
