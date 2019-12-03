@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once "sdilene.php";
 
 $uzivatelskeJmeno = '';
 $uzivatelskeHeslo = '';
@@ -15,8 +15,23 @@ if (isset($_GET['jmeno']) && isset($_GET['heslo'])) {
 
     echo "Toto je ".$_SESSION['pokusu_prihlaseni'].". pokus o přihlášení.";
 
-    $uzivatelskeJmeno = $_GET['jmeno'];
+    $uzivatelskeJmeno = strtolower($_GET['jmeno']); // u jména nechceme řešit velikost písmen
     $uzivatelskeHeslo = $_GET['heslo'];
+
+    // kontrola prihlaseni
+    foreach ($admini as $admin) {
+        if ($admin['jmeno'] == $uzivatelskeJmeno && $admin['heslo'] == $uzivatelskeHeslo) {
+            $_SESSION['uzivatel'] = [
+                "jmeno" => $uzivatelskeJmeno,
+            ];
+            $uzivatelPrihlaseny = true;
+        }
+    }
+
+    if (!isset($_SESSION['uzivatel'])) {
+        echo "Špatně zadané uživatelské jméno nebo heslo.";
+    }
+
 // pokud se nesnazi prihlasit, jenom to rekneme
 } else {
     echo "Toto není pokus o přihlášení, ale celkem jich bylo ".$_SESSION['pokusu_prihlaseni'];

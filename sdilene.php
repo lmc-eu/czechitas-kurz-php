@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $nazevBlogu = "Czechitas";
 $pocetZhlednuti = 20;
@@ -95,3 +96,20 @@ $clanky = [
     $clanek2,
     $clanek3,
 ];
+
+// definice přístupových údajů
+$admini = [
+    [
+        "jmeno" => "martinh",
+        "heslo" => "bflmpsvz"
+    ], [
+        "jmeno" => "ondra",
+        "heslo" => "tajne_heslo"
+    ],
+];
+
+// kontrola, zda je uživatel přihlášený a nastavení proměnné
+$uzivatelPrihlaseny = false;
+if (isset($_SESSION['uzivatel'])) {
+    $uzivatelPrihlaseny = true;
+}
