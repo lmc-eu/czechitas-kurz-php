@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $nazevBlogu = "Czechitas";
 $pocetZhlednuti = 20;
@@ -94,4 +95,9 @@ $clanky = [
     $clanek1,
     $clanek2,
     $clanek3,
+];
+
+$admin = [
+    "jmeno" => "ema",
+    "heslo" => "bflmpsvz",
 ];
