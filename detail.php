@@ -10,6 +10,10 @@ if (empty($clanky[$zobrazitClanek])) {
 
 $dalsiClanek = $zobrazitClanek + 1;
 ?>
+        <?php if (!empty($_SESSION["admin"])) { ?>
+        <!-- tlacitko s odkazem na editaci clanku -->
+        <div class="mt-2 float-right"><a href="editace.php?clanek=<?php echo $zobrazitClanek; ?>" class="btn btn-outline-success btn-sm">editovat</a></div>
+        <?php } ?>
         <!-- detail článku -->
         <section class="jumotron text-center pt-3 pb-3">
             <div class="container">
