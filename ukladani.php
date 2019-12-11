@@ -2,19 +2,19 @@
 /**
  * Příklad vytvoření nového článku:
  * <?php ulozNovyClanek("Muj nadpis", "Perex článku", "Obsah článku", ["Michal", "Honza"]); ?>
- * 
+ *
  * Příklad editace existujícího článku:
  * <?php ulozUpravenyClanek(0, "Muj aktualizovaný nadpis", "Perex článku", "Obsah článku", ["Michal", "Honza"]); ?>
- * 
+ *
  * Příklad smazání článku:
  * <?php smazClanek(0); ?>
- * 
+ *
  * Příklad načtení všech článků:
  * <?php nactiVsechnyClanky(); ?>
- * 
+ *
  * Příklad načtení jednoho článku:
  * <?php nactiClanek(0); ?>
- * 
+ *
  * Příklad načtení článku a přičtení počtu zobrazení:
  * <?php nactiClanekANavysShlednuti(0); ?>
  */
@@ -42,7 +42,7 @@ function ulozUpravenyClanek($id, $nadpis = '', $perex = '', $obsah = '', $autori
     if (!isset($clanky[$id])) {
         throw new Exception("Neplatné ID!");
     }
-    
+
     $novyClanek = vytvorPoleClanku($nadpis, $perex, $obsah, $autori);
 
     $clanky[$id] = $novyClanek;
@@ -84,7 +84,7 @@ function nactiClanek($id) {
  */
 function nactiClanekANavysShlednuti($id) {
     navysPocetZhlednuti($id);
-    
+
     return nactiClanek($id);
 }
 
@@ -97,7 +97,7 @@ function smazClanek($id) {
     if (empty($clanky[$id])) {
         throw new Exception("Článek nelze smazat, protože článek s tímto ID neexistuje.");
     }
-    
+
     unset($clanky[$id]);
 
     ulozVsechnyClanky($clanky);
@@ -107,7 +107,7 @@ function smazClanek($id) {
  * Uloží pole se všemi články do json souboru
  */
 function ulozVsechnyClanky($clanky) {
-    if (!file_put_contents("clanky.json", json_encode($clanky))) {
+    if (!file_put_contents("clanky.json", json_encode($clanky, JSON_PRETTY_PRINT))) {
         throw new Exception("Nepodařilo se uložit články do souboru clanky.json");
     }
 }
