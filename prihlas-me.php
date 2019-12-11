@@ -15,7 +15,7 @@ if (!empty($_POST["jmeno"]) && !empty($_POST["heslo"])) {
     if ($admin["jmeno"] == $_POST["jmeno"] && $admin["heslo"] == $_POST["heslo"]) {
         $_SESSION["admin"] = $admin["jmeno"];
         // redirect do administrace
-        header("Location: admin.php");
+        header("Location: editace.php");
     } else {
         // redirect na prihlasovaci stranku
         header("Location: prihlaseni.php");

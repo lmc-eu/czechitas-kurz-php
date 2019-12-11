@@ -11,8 +11,10 @@ if (empty($clanky[$zobrazitClanek])) {
 $dalsiClanek = $zobrazitClanek + 1;
 ?>
         <?php if (!empty($_SESSION["admin"])) { ?>
-        <!-- tlacitko s odkazem na editaci clanku -->
-        <div class="mt-2 float-right"><a href="editace.php?clanek=<?php echo $zobrazitClanek; ?>" class="btn btn-outline-success btn-sm">editovat</a></div>
+        <!-- tlacitko s odkazem na editaci članku -->
+        <div class="mt-2 float-right"><a href="editace.php?clanek=<?php echo $zobrazitClanek; ?>" class="btn btn-outline-success btn-sm btn--danger">editovat</a></div>
+        <!-- tlacitko s odkazem na smazání članku -->
+        <div class="mt-2 float-right"><a href="smazat.php?clanek=<?php echo $zobrazitClanek; ?>" class="btn btn-outline-success btn-sm btn--danger">smazat</a></div>
         <?php } ?>
         <!-- detail článku -->
         <section class="jumotron text-center pt-3 pb-3">
@@ -30,8 +32,8 @@ $dalsiClanek = $zobrazitClanek + 1;
         <div class="p-5 mb-2 bg-light">
             <!-- výpis autorů článku -->
             <p>
-                <?php foreach ($clanky[$zobrazitClanek]["autori"] as $autor => $emailAutora) { ?>
-                    <a href="mailto:<?php echo $emailAutora; ?>" class="badge badge-secondary"><?php echo $autor; ?></a>
+                <?php foreach ($clanky[$zobrazitClanek]["autori"] as $autor ) { ?>
+                    <?php echo $autor; ?>
                 <?php } ?>
                 <?php if (empty($clanky[$zobrazitClanek]["autori"])) {
                     echo "Anonymní autor";

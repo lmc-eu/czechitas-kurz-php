@@ -10,6 +10,7 @@
             <!-- tlačítka na přihlášení / odhlášení -->
             <p class="mb-0 float-right">
                 <?php if (!empty($_SESSION["admin"])) { ?>
+                    <a href="editace.php" class="btn btn-success btn-sm">Přidat článek</a>
                     <a href="odhlaseni.php" class="btn btn-danger btn-sm">odhlásit</a>
                 <?php } else { ?>
                     <a href="prihlaseni.php" class="btn btn-info btn-sm">přihlásit</a>

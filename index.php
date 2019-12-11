@@ -24,8 +24,8 @@
 
                     <p>
                         <!-- jméno autora článku -->
-                        <?php foreach ($clanek["autori"] as $autor => $emailAutora) { ?>
-                            <a href="mailto:<?php echo $emailAutora;?>"><?php echo $autor;?></a>
+                        <?php foreach ($clanek["autori"] as $autor ) { ?>
+                            <?php echo $autor;?>
                         <?php } ?>
                         <!-- výpis počtu zhlédnutí daného článku -->
                         |
